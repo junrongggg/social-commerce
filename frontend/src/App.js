@@ -1,9 +1,8 @@
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import "./App.css";
-import Navbar from "./feed.js";
-
+import Feed from "./pages/Feed.js";
 function App() {
-  return Navbar;
+  return <Feed></Feed>;
 }
 
 export default App;
