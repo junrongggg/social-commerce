@@ -2,8 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); // Import dotenv directly for ES modules
+const {readdirSync} = require('fs'); // synchronously read information from a specific directory
 
-const { db } = require('./db/db'); //importing from db.js file to connect to mongoDB
+const { db } = require('./db/db.js'); // importing from db.js file to connect to mongoDB
 
 dotenv.config();
 const PORT = process.env.PORT || 5002 ; // Provide a default port if PORT is not defined in the environment
@@ -14,6 +15,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+//routes
+const feedPage = require('./routes/feedPage.js');
+app.use('/feed', feedPage);
+
 app.get('/', (req, res) => {
     res.send('Hello World');
 })
@@ -21,7 +26,7 @@ app.get('/', (req, res) => {
 /** Connecting to server */
 const server = async () => {
     try {
-        db()
+        await db();
         app.listen(PORT, () => {
             console.log('Server is listening on port:', PORT);
         });
