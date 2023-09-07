@@ -1,5 +1,7 @@
-import Navbar from "./components/Navbar.js";
+import React from 'react';
+import Navbar from "../components/Navbar.js";
 
-export default function Feed() {
-  return <Navbar></Navbar>;
+export function Feed() {
+	// return <Navbar></Navbar>;
 }
+
