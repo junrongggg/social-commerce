@@ -1,9 +1,22 @@
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import "./App.css";
-import Navbar from "./feed.js";
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/Navbar.js";
+import { Feed } from "./pages/Feed.js";
 
 function App() {
-  return Navbar;
+
+	return(
+	<div className="App">
+		<Router>
+			<Navbar></Navbar>
+			<Routes>
+				<Route path="/feed"element={<Feed />}/>
+			</Routes>
+		</Router>
+	</div>
+	);
+//   return <Feed></Feed>;
 }
 
 export default App;
