@@ -14,10 +14,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
-//generate a connection to the mongo server
-// mongoose.connect("");
-
 app.get('/', (req, res) => {
     res.send('Hello World');
 })
