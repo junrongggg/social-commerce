@@ -13,7 +13,7 @@ function App() {
 				<Navbar></Navbar>
 				{/* <Feed></Feed> */}
 				<Routes>
-					<Route path="/feed" element={<Feed />}/>
+					<Route path="/" element={<Feed />}/>
 					<Route path="/product" element={<ProductPage />}/>
 				</Routes>
 			</Router>
