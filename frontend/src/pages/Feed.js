@@ -41,10 +41,10 @@ export const Feed = () => {
       {/* Left Section */}
       <div className="w-full md:w-3/4">
         <div className="mx-auto max-w-7xl py-20 px-20 sm:px-6 lg:px-8">
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
-					<div id="disqus_thread" className="mt-10 grid grid-cols-1">
-						<Disqus></Disqus>
-					</div>
+          {/* <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div> */}
+			<div id="disqus_thread" className=" grid grid-cols-1">
+				<Disqus></Disqus>
+			</div>
         </div>
       </div>
 
