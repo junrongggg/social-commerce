@@ -2,6 +2,8 @@ import '../App.css';
 import React, { useState } from 'react';
 import StarRating from '../starRating';
 
+import { useGlobalContext } from "../context/globalContext.js"; //links the globalContext file
+
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,7 +12,10 @@ export const ProductPage = () => {
   const [wishlist, setWishlist] = useState([]);
   const [discussion, setDiscussion] = useState([]);
 
-  const notify = () => toast("You have a new follower!")
+  //returns the functions from globalContext.js
+	const { getProducts, productsList, getComments, comments } = useGlobalContext();
+  
+  const notify = () => toast("Item added to Wishlist!")
   
   const toggleLike = () => {
     setLiked(!liked);
@@ -18,6 +23,7 @@ export const ProductPage = () => {
 
   const addToWishlist = () => {
     // Implement this function to add the product to the wishlist.
+    toast("Item added to Wishlist!")
   };
 
   const shareProduct = () => {
@@ -34,7 +40,7 @@ export const ProductPage = () => {
         <p className="text-gray-600">$99.99</p>
         <p className="my-4">Product description goes here...</p>
           
-        <div className="w-max p-2 pr-96">
+        <div className="w-max p-2 flex justify-end">
           <div className="flex items-center space-x-2">
             {/* Star Ratings */}
             <StarRating/>
@@ -57,7 +63,7 @@ export const ProductPage = () => {
         </div>
         
         <div className="w-1/3 p-2">
-				    <button onClick = {notify}>Add to Wishlist</button>
+				    <button onClick = {addToWishlist}>Add to Wishlist</button>
             <ToastContainer/>
             {/* <button
               onClick={addToWishlist}
@@ -70,12 +76,30 @@ export const ProductPage = () => {
         </div>
         
       </div>
+      
       <div className="w-1/3 p-4">
         <h3 className="text-xl font-semibold mb-4">Product Discussion</h3>
-        <div className="border p-2 h-96 overflow-y-auto">
-          {/* Render discussion messages here */}
+        <div className="border p-2 h-96 overflow-y-auto bg-gray-200">
+          {/* Table for Discussion */}
+          <table className="w-full">
+            <thead>
+              <tr>
+                <th className="px-2 py-1">Username</th>
+                <th className="px-2 py-1">Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comments.map((comment) => (
+                <tr key={comment._id}>
+                  <td className="border px-2 py-1">{comment.username}</td>
+                  <td className="border px-2 py-1">{comment.comments}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
+
     </div>
   );
 };
