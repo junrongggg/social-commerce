@@ -36,6 +36,10 @@ export const Feed = () => {
 	// console.log(comments);
 	const products = productsList;
 
+	useEffect(() => {
+		getProducts();
+	  }, []);
+
   return (
     <div className="bg-white flex flex-col md:flex-row">
       {/* Left Section */}
