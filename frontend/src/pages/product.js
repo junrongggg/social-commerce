@@ -1,4 +1,7 @@
+import '../App.css';
 import React, { useState } from 'react';
+import StarRating from '../starRating';
+
 
 export const ProductPage = () => {
   const [liked, setLiked] = useState(false);
@@ -20,9 +23,13 @@ export const ProductPage = () => {
   return (
     <div className="flex p-4">
       <div className="w-2/3 p-4">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1">
+          <img src="https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg"></img>
+        </div>
         <h2 className="text-2xl font-semibold">Product Name</h2>
         <p className="text-gray-600">$99.99</p>
         <p className="my-4">Product description goes here...</p>
+        <div className=""><StarRating/></div>
         <button
           onClick={toggleLike}
           className={`flex items-center space-x-2 ${
