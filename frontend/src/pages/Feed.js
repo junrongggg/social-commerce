@@ -18,11 +18,21 @@ const ProductCard = ({ product }) => {
   );
 };
 
+const Disqus = () => {
+	(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://http-localhost-3000-biz0qrhp9v.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+	})();
+}
+
 export const Feed = () => {
 
 	//returns the functions from globalContext.js
-	const { getProducts, productsList } = useGlobalContext();
+	const { getProducts, productsList, getComments, comments } = useGlobalContext();
 	// console.log(productsList);
+	// console.log(comments);
 	const products = productsList;
 
 	return (
@@ -36,15 +46,25 @@ export const Feed = () => {
 							<ProductCard key={product._id} product={product} />
 						))}
 					</div>
+					<div id="disqus_thread" className="mt-10 grid grid-cols-1">
+						<Disqus></Disqus>
+					</div>
 				</div>
 			</div>
 
 			{/* Right Section for Ads */}
-				<div className="w-full md:w-1/4 bg-gray-200">
+			<div className="w-full md:w-1/4 bg-gray-200">
 				{/* Your ad content goes here */}
 				<div className="p-4">
 					<h3 className="text-xl font-semibold">Advertisement</h3>
-					{/* Ad content */}
+					<div className="mt-10 grid grid-cols-1">
+						{comments.map((comments) => (
+							<p key={comments._id} product={comments}>
+								{comments.username}
+								{comments.comments}
+							</p>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

@@ -17,7 +17,9 @@ app.use(cors());
 
 //routes
 const feedPage = require('./routes/feedPage.js');
+const discussionPage = require('./routes/discussionPage.js');
 app.use('/feed', feedPage);
+app.use('/discussion', discussionPage);
 
 app.get('/', (req, res) => {
     res.send('Hello World');

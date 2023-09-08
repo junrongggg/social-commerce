@@ -1,4 +1,4 @@
-const ProductSchema = require("../models/productModel.js")
+const ProductSchema = require("../models/productModel.js");
 
 /** Allows the user to add products to the data base */
 exports.addProduct = async (req, res) => {
@@ -12,7 +12,7 @@ exports.addProduct = async (req, res) => {
         description,
         image,
         imageAlt
-    })
+    });
 
     try{
         //validations
