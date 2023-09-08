@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
         <img
           src={product.image}
           alt={product.imageAlt}
-          className="h-full w-full object-cover object-center group-hover:opacity-75"
+          className="w-40 group-hover:opacity-75"
         />
       </div>
       <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
@@ -40,10 +40,14 @@ export const Feed = () => {
           <h3 className="text-3xl font-extrabold text-gray-900 pb-4">
             Flash deals!
           </h3>
-          {/* Ad content */}
-          {products.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
+          <div className="grid grid-cols-2 gap-4">
+            {/* Ad content */}
+            {products.map((product) => (
+              <div key={product._id}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
