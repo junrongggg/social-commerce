@@ -1,4 +1,3 @@
-// import logo from "./logo.svg";
 import "./App.css";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar.js";
@@ -10,10 +9,12 @@ function App() {
 	return(
 		<div className="App">
 			<Router>
+				{/* Navigation Bar */}
 				<Navbar></Navbar>
-				{/* <Feed></Feed> */}
 				<Routes>
+					{/* Feed Route */}
 					<Route path="/" element={<Feed />}/>
+					{/* Product Route */}
 					<Route path="/product" element={<ProductPage />}/>
 				</Routes>
 			</Router>
