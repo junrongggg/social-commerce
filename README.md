@@ -12,5 +12,7 @@ Backend
 Frontend
 5. npm install
 6. npm install -D tailwindcss
-7. npx tailwindcss init
-8. npm run start
+7. npm install react-bootstrap bootstrap
+8. npm install react-router-dom
+9. npx tailwindcss init
+10. npm run start
