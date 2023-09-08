@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { useEffect } from "react";
-import { useGlobalContext } from "../context/globalContext.js"; //links the 
+import { useGlobalContext } from "../context/globalContext.js"; //links the
 
 const ProductCard = ({ product }) => {
   return (
@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
         <img
           src={product.image}
           alt={product.imageAlt}
-          className="h-full w-full object-cover object-center group-hover:opacity-75"
+          className="w-40 group-hover:opacity-75"
         />
       </div>
       <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
@@ -36,38 +36,52 @@ export const Feed = () => {
 	// console.log(comments);
 	const products = productsList;
 
-	return (
-		<div className="bg-white flex flex-col md:flex-row">
-			{/* Left Section */}
-			<div className="w-full md:w-3/4">
-				<div className="mx-auto max-w-7xl py-20 px-20 sm:px-6 lg:px-8">
-					<h2 className="text-3xl font-extrabold text-gray-900">Products</h2>
-					<div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-						{products.map((product) => (
-							<ProductCard key={product._id} product={product} />
-						))}
-					</div>
+  return (
+    <div className="bg-white flex flex-col md:flex-row">
+      {/* Left Section */}
+      <div className="w-full md:w-3/4">
+        <div className="mx-auto max-w-7xl py-20 px-20 sm:px-6 lg:px-8">
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
 					<div id="disqus_thread" className="mt-10 grid grid-cols-1">
 						<Disqus></Disqus>
 					</div>
-				</div>
-			</div>
+        </div>
+      </div>
 
-			{/* Right Section for Ads */}
-			<div className="w-full md:w-1/4 bg-gray-200">
-				{/* Your ad content goes here */}
-				<div className="p-4">
-					<h3 className="text-xl font-semibold">Advertisement</h3>
-					<div className="mt-10 grid grid-cols-1">
-						{comments.map((comments) => (
-							<p key={comments._id} product={comments}>
-								{comments.username}
-								{comments.comments}
-							</p>
-						))}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+      {/* Right Section for Ads */}
+      <div className="w-full md:w-1/4 bg-gray-200">
+        {/* Your ad content goes here */}
+        <div className="p-4">
+          <h3 className="text-3xl font-extrabold text-gray-900 pb-4">
+            Flash deals!
+          </h3>
+          <div className="grid grid-cols-2 gap-4">
+            {/* Ad content */}
+            {products.map((product) => (
+              <div key={product._id}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+	// 		{/* Right Section for Ads */}
+	// 		<div className="w-full md:w-1/4 bg-gray-200">
+	// 			{/* Your ad content goes here */}
+	// 			<div className="p-4">
+	// 				<h3 className="text-xl font-semibold">Advertisement</h3>
+	// 				<div className="mt-10 grid grid-cols-1">
+	// 					{comments.map((comments) => (
+	// 						<p key={comments._id} product={comments}>
+	// 							{comments.username}
+	// 							{comments.comments}
+	// 						</p>
+	// 					))}
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 	</div>
+	// );
 };
