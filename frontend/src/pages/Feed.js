@@ -18,6 +18,7 @@ const ProductCard = ({ product }) => {
   );
 };
 
+/** Disqus Commenting Plugin */
 const Disqus = () => {
 	(function() { // DON'T EDIT BELOW THIS LINE
 		var d = document, s = d.createElement('script');
