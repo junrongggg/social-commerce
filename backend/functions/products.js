@@ -4,12 +4,14 @@ const ProductSchema = require("../models/productModel.js")
 exports.addProduct = async (req, res) => {
     // console.log(req.body);
 
-    const {name, price, description} = req.body; //destructure the req.body
+    const {name, price, description, image, imageAlt} = req.body; //destructure the req.body
 
     const product = ProductSchema({
         name,
         price,
         description,
+        image,
+        imageAlt
     })
 
     try{
