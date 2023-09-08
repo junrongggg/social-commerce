@@ -12,7 +12,7 @@ const StarRating = () => {
                 const ratingValue = i+1;
 
                 return (
-                <label style={{ display: "inline-block" }}>
+                <label >
                     <input 
                     type="radio"
                      name="rating" 
