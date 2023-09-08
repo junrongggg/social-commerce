@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useGlobalContext } from "../context/globalContext.js"; //links the
+import { useGlobalContext } from "../context/globalContext.js"; //links the globalContext file
 
 const ProductCard = ({ product }) => {
   return (
@@ -31,7 +31,7 @@ const Disqus = () => {
 export const Feed = () => {
 
 	//returns the functions from globalContext.js
-	const { getProducts, productsList, getComments, comments } = useGlobalContext();
+	const { getProducts, productsList } = useGlobalContext();
 	// console.log(productsList);
 	// console.log(comments);
 	const products = productsList;
@@ -67,21 +67,4 @@ export const Feed = () => {
       </div>
     </div>
   );
-	// 		{/* Right Section for Ads */}
-	// 		<div className="w-full md:w-1/4 bg-gray-200">
-	// 			{/* Your ad content goes here */}
-	// 			<div className="p-4">
-	// 				<h3 className="text-xl font-semibold">Advertisement</h3>
-	// 				<div className="mt-10 grid grid-cols-1">
-	// 					{comments.map((comments) => (
-	// 						<p key={comments._id} product={comments}>
-	// 							{comments.username}
-	// 							{comments.comments}
-	// 						</p>
-	// 					))}
-	// 				</div>
-	// 			</div>
-	// 		</div>
-	// 	</div>
-	// );
 };

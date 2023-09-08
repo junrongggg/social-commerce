@@ -1,8 +1,9 @@
 import '../App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import StarRating from '../starRating';
 
 import { useGlobalContext } from "../context/globalContext.js"; //links the globalContext file
+import { CommentForm } from "../components/addComments.js";
 
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,8 +15,10 @@ export const ProductPage = () => {
 
   //returns the functions from globalContext.js
 	const { getProducts, productsList, getComments, comments } = useGlobalContext();
-  
-  const notify = () => toast("Item added to Wishlist!")
+
+  useEffect(() => {
+    getComments();
+  }, [comments]);
   
   const toggleLike = () => {
     setLiked(!liked);
@@ -65,12 +68,6 @@ export const ProductPage = () => {
         <div className="w-1/3 p-2">
 				    <button onClick = {addToWishlist}>Add to Wishlist</button>
             <ToastContainer/>
-            {/* <button
-              onClick={addToWishlist}
-              className="text-gray-500 hover:text-gray-700"
-            >
-              Add to Wishlist
-            </button> */}
         </div>
         <div className="w-1/3 p-2">
         </div>
@@ -79,7 +76,7 @@ export const ProductPage = () => {
       
       <div className="w-1/3 p-4">
         <h3 className="text-xl font-semibold mb-4">Product Discussion</h3>
-        <div className="border p-2 h-96 overflow-y-auto bg-gray-200">
+        <div className="border p-2 h-120 overflow-y-auto bg-gray-200">
           {/* Table for Discussion */}
           <table className="w-full">
             <thead>
@@ -97,6 +94,8 @@ export const ProductPage = () => {
               ))}
             </tbody>
           </table>
+
+          <CommentForm/>
         </div>
       </div>
 
