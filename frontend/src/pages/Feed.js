@@ -58,14 +58,14 @@ export const Feed = () => {
           />
         </label>
       </div>
-      {/*<div className="w-full md:w-3/4">
-        <div className="mx-auto max-w-7xl py-20 px-20 sm:px-6 lg:px-8">*/}
-      {/* <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div> */}
-      {/*<div id="disqus_thread" className=" grid grid-cols-1">
+      <div className="w-full md:w-3/4">
+        <div className="mx-auto max-w-7xl py-20 px-20 sm:px-6 lg:px-8">
+       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+      <div id="disqus_thread" className=" grid grid-cols-1">
             <Disqus></Disqus>
           </div>
         </div>
-      </div>*/}
+      </div>
 
       {/* Right Section for Ads */}
       <div className="w-full md:w-1/4 bg-gray-200">
