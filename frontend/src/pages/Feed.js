@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { useGlobalContext } from "../context/globalContext.js"; //links the
+import { useGlobalContext } from "../context/globalContext.js"; //links the globalContext file
 
 const ProductCard = ({ product }) => {
   return (
@@ -18,11 +18,28 @@ const ProductCard = ({ product }) => {
   );
 };
 
+/** Disqus Commenting Plugin */
+const Disqus = () => {
+  (function () {
+    // DON'T EDIT BELOW THIS LINE
+    var d = document,
+      s = d.createElement("script");
+    s.src = "https://http-localhost-3000-biz0qrhp9v.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+};
+
 export const Feed = () => {
   //returns the functions from globalContext.js
   const { getProducts, productsList } = useGlobalContext();
   // console.log(productsList);
+  // console.log(comments);
   const products = productsList;
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   return (
     <div className="bg-white flex flex-col md:flex-row">
@@ -40,6 +57,14 @@ export const Feed = () => {
             name="search"
           />
         </label>
+      </div>
+      <div className="w-full md:w-3/4">
+        <div className="mx-auto max-w-7xl py-20 px-20 sm:px-6 lg:px-8">
+          {/* <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div> */}
+          <div id="disqus_thread" className=" grid grid-cols-1">
+            <Disqus></Disqus>
+          </div>
+        </div>
       </div>
 
       {/* Right Section for Ads */}

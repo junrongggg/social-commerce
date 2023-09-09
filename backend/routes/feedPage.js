@@ -1,4 +1,4 @@
-const { addProduct, getProduct, deleteProduct } = require('../functions/products');
+const { addProduct, getProduct, deleteProduct } = require('../functions/products.js');
 
 const router = require('express').Router();
 
